@@ -1298,8 +1298,8 @@ describe('ModelDiscoveryService', () => {
         [
           'anthropic/claude-opus-4.6',
           {
-            input: 0.000015,
-            output: 0.000075,
+            input: 0.000005,
+            output: 0.000025,
             contextWindow: 200000,
             displayName: 'Claude Opus 4.6',
           },
@@ -1330,7 +1330,7 @@ describe('ModelDiscoveryService', () => {
       expect(result).toHaveLength(2);
       expect(result[0].id).toBe('claude-opus-4-6');
       expect(result[0].displayName).toBe('Claude Opus 4.6');
-      expect(result[0].inputPricePerToken).toBe(0.000015);
+      expect(result[0].inputPricePerToken).toBe(0.000005);
       expect(result[0].provider).toBe('anthropic');
       expect(result[1].id).toBe('claude-sonnet-4-6');
     });
