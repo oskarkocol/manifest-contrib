@@ -113,10 +113,10 @@ describe('computeTokenCost', () => {
     const cachePricing: PricingEntry = {
       model_name: 'claude-opus-4-6',
       provider: 'Anthropic',
-      input_price_per_token: 3 / 1_000_000,
-      output_price_per_token: 15 / 1_000_000,
-      cache_read_price_per_token: 0.3 / 1_000_000,
-      cache_write_price_per_token: 3.75 / 1_000_000,
+      input_price_per_token: 5 / 1_000_000,
+      output_price_per_token: 25 / 1_000_000,
+      cache_read_price_per_token: 0.5 / 1_000_000,
+      cache_write_price_per_token: 6.25 / 1_000_000,
       display_name: 'Claude Opus 4.6',
     };
 
@@ -129,7 +129,7 @@ describe('computeTokenCost', () => {
       pricing: cachePricing,
     });
 
-    expect(result).toBeCloseTo(0.00384, 12);
+    expect(result).toBeCloseTo(0.0064, 12);
   });
 
   it('computes cost with only input tokens', () => {

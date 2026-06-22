@@ -224,8 +224,8 @@ describe('ModelDiscoveryService', () => {
       mockPricingSync.lookupPricing.mockImplementation((key: string) => {
         if (key === 'anthropic/claude-opus-4.8') {
           return {
-            input: 0.000015,
-            output: 0.000075,
+            input: 0.000005,
+            output: 0.000025,
             contextWindow: 200000,
             displayName: 'Claude Opus 4.8',
           };
@@ -253,8 +253,8 @@ describe('ModelDiscoveryService', () => {
         if (providerId === 'anthropic' && modelId === 'claude-opus-4.8') {
           return {
             name: 'Claude Opus 4.8',
-            inputPricePerToken: 0.000015,
-            outputPricePerToken: 0.000075,
+            inputPricePerToken: 0.000005,
+            outputPricePerToken: 0.000025,
             contextWindow: 200000,
           };
         }
@@ -1298,8 +1298,8 @@ describe('ModelDiscoveryService', () => {
         [
           'anthropic/claude-opus-4.6',
           {
-            input: 0.000015,
-            output: 0.000075,
+            input: 0.000005,
+            output: 0.000025,
             contextWindow: 200000,
             displayName: 'Claude Opus 4.6',
           },
@@ -1330,7 +1330,7 @@ describe('ModelDiscoveryService', () => {
       expect(result).toHaveLength(2);
       expect(result[0].id).toBe('claude-opus-4-6');
       expect(result[0].displayName).toBe('Claude Opus 4.6');
-      expect(result[0].inputPricePerToken).toBe(0.000015);
+      expect(result[0].inputPricePerToken).toBe(0.000005);
       expect(result[0].provider).toBe('anthropic');
       expect(result[1].id).toBe('claude-sonnet-4-6');
     });
@@ -1682,8 +1682,8 @@ describe('ModelDiscoveryService', () => {
         [
           'anthropic/claude-opus-4-20260301',
           {
-            input: 0.000015,
-            output: 0.000075,
+            input: 0.000005,
+            output: 0.000025,
             contextWindow: 200000,
             displayName: 'Claude Opus 4',
           },
@@ -1758,8 +1758,8 @@ describe('ModelDiscoveryService', () => {
         [
           'anthropic/claude-opus-4-20260301',
           {
-            input: 0.000015,
-            output: 0.000075,
+            input: 0.000005,
+            output: 0.000025,
             contextWindow: 1000000,
             displayName: 'Claude Opus 4',
           },
@@ -2250,8 +2250,8 @@ describe('ModelDiscoveryService', () => {
         [
           'anthropic/claude-opus-4-latest',
           {
-            input: 0.000015,
-            output: 0.000075,
+            input: 0.000005,
+            output: 0.000025,
             contextWindow: 200000,
             displayName: 'Claude Opus 4',
           },
@@ -2354,7 +2354,7 @@ describe('ModelDiscoveryService', () => {
       const orMap = new Map([
         [
           'anthropic/claude-opus-4',
-          { input: 0.000015, output: 0.000075, contextWindow: 200000, displayName: 'Opus 4' },
+          { input: 0.000005, output: 0.000025, contextWindow: 200000, displayName: 'Opus 4' },
         ],
       ]);
       mockPricingSync.getAll.mockReturnValue(orMap);
@@ -2385,7 +2385,7 @@ describe('ModelDiscoveryService', () => {
       const orMap = new Map([
         [
           'anthropic/claude-opus-4-latest',
-          { input: 0.000015, output: 0.000075, contextWindow: 200000, displayName: '' },
+          { input: 0.000005, output: 0.000025, contextWindow: 200000, displayName: '' },
         ],
       ]);
       mockPricingSync.getAll.mockReturnValue(orMap);
@@ -2551,8 +2551,8 @@ describe('ModelDiscoveryService', () => {
         [
           'anthropic/claude-opus-4-20260301',
           {
-            input: 0.000015,
-            output: 0.000075,
+            input: 0.000005,
+            output: 0.000025,
             contextWindow: 200000,
             displayName: 'Claude Opus 4',
           },

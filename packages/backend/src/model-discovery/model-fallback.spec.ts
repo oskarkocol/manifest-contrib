@@ -424,8 +424,8 @@ describe('buildSubscriptionFallbackModels', () => {
         [
           'anthropic/claude-opus-4-20260301',
           {
-            input: 0.000015,
-            output: 0.000075,
+            input: 0.000005,
+            output: 0.000025,
             contextWindow: 200000,
             displayName: 'Claude Opus 4',
           },
