@@ -115,8 +115,8 @@ const OPENROUTER_MODELS_FIXTURE = {
         output_modalities: ['text'],
       },
       pricing: {
-        prompt: '0.000015',
-        completion: '0.000075',
+        prompt: '0.000005',
+        completion: '0.000025',
       },
     },
     {

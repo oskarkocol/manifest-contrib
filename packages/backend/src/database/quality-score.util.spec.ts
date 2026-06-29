@@ -346,8 +346,8 @@ describe('computeQualityScore', () => {
       const model = makeModel({
         ...noCaps,
         model_name: 'anthropic/claude-opus-4',
-        input_price_per_token: 0.000015,
-        output_price_per_token: 0.000075,
+        input_price_per_token: 0.000005,
+        output_price_per_token: 0.000025,
       });
       expect(computeQualityScore(model)).toBe(5);
     });
