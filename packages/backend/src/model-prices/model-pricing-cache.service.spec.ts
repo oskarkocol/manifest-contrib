@@ -106,7 +106,7 @@ describe('ModelPricingCacheService', () => {
     it('should attribute supported providers from OpenRouter data', async () => {
       const orMap = new Map<string, OpenRouterPricingEntry>([
         ['openai/gpt-4o', makeEntry(0.0000025, 0.00001)],
-        ['anthropic/claude-opus-4-6', makeEntry(0.000015, 0.000075)],
+        ['anthropic/claude-opus-4-6', makeEntry(0.000005, 0.000025)],
         ['google/gemini-2.5-pro', makeEntry(0.000003, 0.000015)],
       ]);
       mockGetAll.mockReturnValue(orMap);
@@ -406,7 +406,7 @@ describe('ModelPricingCacheService', () => {
     it('should override OpenRouter entries with models.dev data', async () => {
       // OpenRouter has slightly different pricing
       mockGetAll.mockReturnValue(
-        new Map([['anthropic/claude-opus-4-6', makeEntry(0.000015, 0.000075)]]),
+        new Map([['anthropic/claude-opus-4-6', makeEntry(0.000005, 0.000025)]]),
       );
       // models.dev has correct native-ID pricing
       mockModelsDevSync.getModelsForProvider.mockImplementation((providerId: string) => {
