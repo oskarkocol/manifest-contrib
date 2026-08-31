@@ -94,9 +94,9 @@ describe('computeTokenCost', () => {
     const deepseekPricing: PricingEntry = {
       model_name: 'deepseek-v4-pro',
       provider: 'DeepSeek',
-      input_price_per_token: 0.435 / 1_000_000,
-      output_price_per_token: 0.87 / 1_000_000,
-      cache_read_price_per_token: 0.003625 / 1_000_000,
+      input_price_per_token: 0.66 / 1_000_000,
+      output_price_per_token: 1.98 / 1_000_000,
+      cache_read_price_per_token: 0.022 / 1_000_000,
       display_name: 'DeepSeek V4 Pro',
     };
 
@@ -108,7 +108,7 @@ describe('computeTokenCost', () => {
       pricing: deepseekPricing,
     });
 
-    expect(result).toBeCloseTo(0.0074298, 10);
+    expect(result).toBeCloseTo(0.0124212, 10);
   });
 
   it('falls back to input price for cache-read tokens without cache-read pricing', () => {
