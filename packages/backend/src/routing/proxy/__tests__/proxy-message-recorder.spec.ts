@@ -456,9 +456,9 @@ describe('ProxyMessageRecorder', () => {
       getByModelMock.mockReturnValue({
         model_name: 'deepseek-v4-pro',
         provider: 'DeepSeek',
-        input_price_per_token: 0.435 / 1_000_000,
-        output_price_per_token: 0.87 / 1_000_000,
-        cache_read_price_per_token: 0.003625 / 1_000_000,
+        input_price_per_token: 0.66 / 1_000_000,
+        output_price_per_token: 1.98 / 1_000_000,
+        cache_read_price_per_token: 0.022 / 1_000_000,
         display_name: 'DeepSeek V4 Pro',
       });
 
@@ -473,7 +473,7 @@ describe('ProxyMessageRecorder', () => {
 
       const inserted = insertMock.mock.calls[0][0];
       expect(inserted.cache_read_tokens).toBe(21_600);
-      expect(inserted.cost_usd).toBeCloseTo(0.0074298, 10);
+      expect(inserted.cost_usd).toBeCloseTo(0.0124212, 10);
     });
 
     it('sets cost_usd to 0 for subscription auth type', async () => {
