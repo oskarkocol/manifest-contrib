@@ -65,7 +65,7 @@ describe('PricingSyncService', () => {
               id: 'anthropic/claude-opus-4',
               name: 'Anthropic: Claude Opus 4',
               context_length: 200000,
-              pricing: { prompt: '0.000015', completion: '0.000075' },
+              pricing: { prompt: '0.000005', completion: '0.000025' },
             },
             {
               id: 'openai/gpt-4o',
@@ -88,8 +88,8 @@ describe('PricingSyncService', () => {
       expect(all.has('gpt-4o')).toBe(false);
 
       const claude = all.get('anthropic/claude-opus-4')!;
-      expect(claude.input).toBe(0.000015);
-      expect(claude.output).toBe(0.000075);
+      expect(claude.input).toBe(0.000005);
+      expect(claude.output).toBe(0.000025);
       expect(claude.contextWindow).toBe(200000);
       expect(claude.displayName).toBe('Claude Opus 4');
 
@@ -352,7 +352,7 @@ describe('PricingSyncService', () => {
           data: [
             {
               id: 'anthropic/claude-opus-4',
-              pricing: { prompt: '0.000015', completion: '0.000075' },
+              pricing: { prompt: '0.000005', completion: '0.000025' },
             },
           ],
         }),
@@ -362,7 +362,7 @@ describe('PricingSyncService', () => {
 
       const entry = service.lookupPricing('anthropic/claude-opus-4');
       expect(entry).not.toBeNull();
-      expect(entry!.input).toBe(0.000015);
+      expect(entry!.input).toBe(0.000005);
     });
   });
 
