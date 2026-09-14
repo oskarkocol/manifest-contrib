@@ -134,7 +134,7 @@ describe('ModelPricingCacheService — zero-pricing override protection', () => 
       // win over OpenRouter (curated > broad).
       mockGetAll.mockReturnValue(
         new Map<string, OpenRouterPricingEntry>([
-          ['anthropic/claude-opus-4-6', makeEntry(0.000015, 0.000075)],
+          ['anthropic/claude-opus-4-6', makeEntry(0.000005, 0.000025)],
         ]),
       );
 
