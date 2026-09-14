@@ -120,8 +120,8 @@ describe('ModelPricesService', () => {
         {
           model_name: 'claude-opus-4-6',
           provider: 'Anthropic',
-          input_price_per_token: 0.000015,
-          output_price_per_token: 0.000075,
+          input_price_per_token: 0.000005,
+          output_price_per_token: 0.000025,
         },
         {
           model_name: 'gpt-4o',
