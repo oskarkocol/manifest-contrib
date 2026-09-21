@@ -459,13 +459,13 @@ describe('ProxyMessageRecorder', () => {
       getByModelMock.mockReturnValue({
         model_name: 'deepseek-v4-flash',
         provider: 'DeepSeek',
-        input_price_per_token: 0.22 / 1_000_000,
-        output_price_per_token: 0.66 / 1_000_000,
+        input_price_per_token: 0.15 / 1_000_000,
+        output_price_per_token: 0.6 / 1_000_000,
         time_tiers: [
           {
             windows: ['01:00-04:00', '06:00-10:00'],
-            input_price_per_token: 0.44 / 1_000_000,
-            output_price_per_token: 1.32 / 1_000_000,
+            input_price_per_token: 0.3 / 1_000_000,
+            output_price_per_token: 1.2 / 1_000_000,
           },
         ],
         display_name: 'DeepSeek V4 Flash',
@@ -477,7 +477,7 @@ describe('ProxyMessageRecorder', () => {
         timestamp: '2026-08-17T02:30:00.000Z',
         usage: { prompt_tokens: 1_000_000, completion_tokens: 1_000_000 },
       });
-      expect(insertMock.mock.calls[0][0].cost_usd).toBeCloseTo(0.44 + 1.32, 10);
+      expect(insertMock.mock.calls[0][0].cost_usd).toBeCloseTo(0.3 + 1.2, 10);
 
       // Same usage off-peak bills the base rate.
       await recorder.recordFallbackSuccess(ctx, 'deepseek-v4-flash', 'standard', {
@@ -485,7 +485,7 @@ describe('ProxyMessageRecorder', () => {
         timestamp: '2026-08-17T12:00:00.000Z',
         usage: { prompt_tokens: 1_000_000, completion_tokens: 1_000_000 },
       });
-      expect(insertMock.mock.calls[1][0].cost_usd).toBeCloseTo(0.22 + 0.66, 10);
+      expect(insertMock.mock.calls[1][0].cost_usd).toBeCloseTo(0.15 + 0.6, 10);
 
       // The provider attempt start wins over the synthetic fallback timestamp:
       // the attempt ran in-peak even though the delayed write stamps off-peak.
@@ -505,7 +505,7 @@ describe('ProxyMessageRecorder', () => {
       // The resolved pendingWrite routes this through the update path.
       expect(updateMock).toHaveBeenCalledWith(
         { id: 'attempt-peak' },
-        expect.objectContaining({ cost_usd: expect.closeTo(0.44 + 1.32, 10) }),
+        expect.objectContaining({ cost_usd: expect.closeTo(0.3 + 1.2, 10) }),
       );
     });
 
@@ -513,9 +513,9 @@ describe('ProxyMessageRecorder', () => {
       getByModelMock.mockReturnValue({
         model_name: 'deepseek-v4-pro',
         provider: 'DeepSeek',
-        input_price_per_token: 0.435 / 1_000_000,
-        output_price_per_token: 0.87 / 1_000_000,
-        cache_read_price_per_token: 0.003625 / 1_000_000,
+        input_price_per_token: 0.66 / 1_000_000,
+        output_price_per_token: 1.98 / 1_000_000,
+        cache_read_price_per_token: 0.022 / 1_000_000,
         display_name: 'DeepSeek V4 Pro',
       });
 
@@ -530,7 +530,7 @@ describe('ProxyMessageRecorder', () => {
 
       const inserted = insertMock.mock.calls[0][0];
       expect(inserted.cache_read_tokens).toBe(21_600);
-      expect(inserted.cost_usd).toBeCloseTo(0.0074298, 10);
+      expect(inserted.cost_usd).toBeCloseTo(0.0124212, 10);
     });
 
     it('sets cost_usd to 0 for subscription auth type', async () => {

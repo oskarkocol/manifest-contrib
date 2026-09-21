@@ -512,10 +512,10 @@ describe('ModelPricingCacheService', () => {
             {
               id: 'deepseek-v4-pro',
               name: 'DeepSeek V4 Pro',
-              inputPricePerToken: 0.435 / 1_000_000,
-              outputPricePerToken: 0.87 / 1_000_000,
-              cacheReadPricePerToken: 0.003625 / 1_000_000,
-              cacheWritePricePerToken: 0.435 / 1_000_000,
+              inputPricePerToken: 0.66 / 1_000_000,
+              outputPricePerToken: 1.98 / 1_000_000,
+              cacheReadPricePerToken: 0.022 / 1_000_000,
+              cacheWritePricePerToken: 0,
             },
           ];
         }
@@ -526,8 +526,8 @@ describe('ModelPricingCacheService', () => {
 
       const entry = service.getByModel('deepseek-v4-pro');
       expect(entry).toBeDefined();
-      expect(entry!.cache_read_price_per_token).toBe(0.003625 / 1_000_000);
-      expect(entry!.cache_write_price_per_token).toBe(0.435 / 1_000_000);
+      expect(entry!.cache_read_price_per_token).toBe(0.022 / 1_000_000);
+      expect(entry!.cache_write_price_per_token).toBe(0);
     });
 
     it('should set display_name to null when models.dev entry has no name', async () => {
