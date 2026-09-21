@@ -15,9 +15,9 @@ import { ProviderModelRegistryService } from '../model-discovery/provider-model-
 const DEEPSEEK_TIME_TIER = {
   windows: ['01:00-04:00', '06:00-10:00'],
   days: [1, 2, 3, 4, 5],
-  inputPricePerToken: 0.44 / 1_000_000,
-  outputPricePerToken: 1.32 / 1_000_000,
-  cacheReadPricePerToken: 0.014 / 1_000_000,
+  inputPricePerToken: 0.3 / 1_000_000,
+  outputPricePerToken: 1.2 / 1_000_000,
+  cacheReadPricePerToken: 0.006 / 1_000_000,
   cacheWritePricePerToken: null,
 };
 
@@ -45,9 +45,9 @@ describe('ModelPricingCacheService — time-of-day pricing tiers', () => {
           {
             id: 'deepseek-v4-flash',
             name: 'DeepSeek V4 Flash',
-            inputPricePerToken: 0.22 / 1_000_000,
-            outputPricePerToken: 0.66 / 1_000_000,
-            cacheReadPricePerToken: 0.007 / 1_000_000,
+            inputPricePerToken: 0.15 / 1_000_000,
+            outputPricePerToken: 0.6 / 1_000_000,
+            cacheReadPricePerToken: 0.003 / 1_000_000,
             timeTiers: [DEEPSEEK_TIME_TIER],
           },
           {
@@ -82,13 +82,13 @@ describe('ModelPricingCacheService — time-of-day pricing tiers', () => {
       {
         windows: ['01:00-04:00', '06:00-10:00'],
         days: [1, 2, 3, 4, 5],
-        input_price_per_token: 0.44 / 1_000_000,
-        output_price_per_token: 1.32 / 1_000_000,
-        cache_read_price_per_token: 0.014 / 1_000_000,
+        input_price_per_token: 0.3 / 1_000_000,
+        output_price_per_token: 1.2 / 1_000_000,
+        cache_read_price_per_token: 0.006 / 1_000_000,
         cache_write_price_per_token: null,
       },
     ]);
-    expect(entry!.input_price_per_token).toBe(0.22 / 1_000_000);
+    expect(entry!.input_price_per_token).toBe(0.15 / 1_000_000);
   });
 
   it('leaves time_tiers undefined for models without a schedule', async () => {
@@ -108,9 +108,9 @@ describe('ModelPricingCacheService — time-of-day pricing tiers', () => {
             {
               id: 'deepseek-v4-flash',
               name: 'DeepSeek V4 Flash',
-              inputPricePerToken: 0.22 / 1_000_000,
-              outputPricePerToken: 0.66 / 1_000_000,
-              cacheReadPricePerToken: 0.007 / 1_000_000,
+              inputPricePerToken: 0.15 / 1_000_000,
+              outputPricePerToken: 0.6 / 1_000_000,
+              cacheReadPricePerToken: 0.003 / 1_000_000,
               timeTiers: [{ ...DEEPSEEK_TIME_TIER, days: null }],
             },
           ]
