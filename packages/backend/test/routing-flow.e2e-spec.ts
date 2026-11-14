@@ -60,8 +60,8 @@ beforeAll(async () => {
     contextWindow: 128000,
   });
   orCache.set('anthropic/claude-opus-4-6', {
-    input: 0.000015,
-    output: 0.000075,
+    input: 0.000005,
+    output: 0.000025,
     contextWindow: 200000,
   });
   orCache.set('anthropic/claude-sonnet-4', {
@@ -147,8 +147,8 @@ describe('Routing enabled → scorer routes by query complexity', () => {
         displayName: 'claude-opus-4-6',
         provider: 'anthropic',
         contextWindow: 200000,
-        inputPricePerToken: 0.000015,
-        outputPricePerToken: 0.000075,
+        inputPricePerToken: 0.000005,
+        outputPricePerToken: 0.000025,
         capabilityReasoning: true,
         capabilityCode: true,
         qualityScore: 5,
